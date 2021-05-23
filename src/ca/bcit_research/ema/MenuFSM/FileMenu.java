@@ -1,4 +1,4 @@
 package ca.bcit_research.ema.MenuFSM;
 
-public class FileMenu {
+public class FileMenu extends NavigationMenu{
 }
