@@ -3,7 +3,6 @@ package ca.bcit_research.ema.MenuFSM;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Serializes the given MenuProviders as options.
@@ -15,9 +14,8 @@ public class MenuProviderSerializer implements MenuSerializer {
     @Override
     public ArrayList<Option> getOptions(List<MenuProvider> menuProviders, MenuProvider...otherMenus) {
         ArrayList<Option> options = new ArrayList<>();
-        AtomicInteger position = new AtomicInteger(1);
-        menuProviders.forEach(menuProvider -> options.add(menuProvider.toOption(position.getAndIncrement())));
-        Arrays.asList(otherMenus).forEach(menuProvider -> options.add(menuProvider.toOption(position.getAndIncrement())));
+        menuProviders.forEach(menuProvider -> options.add(menuProvider.toOption()));
+        Arrays.asList(otherMenus).forEach(menuProvider -> options.add(menuProvider.toOption()));
         return options;
     }
 }

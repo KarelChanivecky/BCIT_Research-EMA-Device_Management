@@ -7,22 +7,16 @@ package ca.bcit_research.ema.MenuFSM;
  * @version May, 2021
  */
 public class Option {
-    private int position;
     private final String name;
     private final OptionAction action;
 
     /**
      *  Build instance of option
      *
-     * @param position The position this option will take in the menu. Must be >= 0
      * @param name The name of the option
      * @param action The action to be done by the option when selected
      */
-    public Option(int position, String name, OptionAction action) {
-        if (position < 1) {
-            throw new IllegalArgumentException("Position must be at least 1");
-        }
-        this.position = position;
+    public Option(String name, OptionAction action) {
 
         if (name.length() == 0) {
             throw new IllegalArgumentException("Name must be at least 1 character long");
@@ -52,20 +46,5 @@ public class Option {
         return name;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    /**
-     * Sets a new position for this option.
-     * @param newPosition the new position
-     * @throws IllegalArgumentException if new position is not >= 1
-     */
-    public void setPosition(int newPosition) throws IllegalArgumentException {
-        if (newPosition < 1) {
-            throw new IllegalArgumentException("Position must be at least 1");
-        }
-        this.position = newPosition;
-    }
 }
 

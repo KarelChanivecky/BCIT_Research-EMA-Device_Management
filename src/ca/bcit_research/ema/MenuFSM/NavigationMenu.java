@@ -12,8 +12,19 @@ import java.util.Arrays;
  */
 public class NavigationMenu implements MenuProvider{
 
-    protected final ArrayList<Option> options;
+    protected ArrayList<Option> options = new ArrayList<Option>();
     private final String name;
+
+    NavigationMenu(String name, MenuProvider parentMenu) throws IllegalArgumentException {
+
+        if (name.length() == 0) {
+            throw new IllegalArgumentException("Name must be at least 1 character long");
+        }
+
+        this.name = name;
+
+        options.add(parentMenu.toOption());
+    }
 
     NavigationMenu(String name, MenuProvider parentMenu, MenuProvider... children) throws IllegalArgumentException {
 
@@ -22,9 +33,8 @@ public class NavigationMenu implements MenuProvider{
         }
 
         this.name = name;
-        ArrayList<MenuProvider> childMenus = new ArrayList<>(Arrays.asList(children));
 
-        options = new MenuProviderSerializer().getOptions(childMenus, parentMenu);
+        options = new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children)), parentMenu);
     }
 
 
@@ -39,7 +49,7 @@ public class NavigationMenu implements MenuProvider{
     }
 
     @Override
-    public Option toOption(int position) {
-        return new Option(position, name, ()-> this);
+    public Option toOption() {
+        return new Option(name, ()-> this);
     }
 }

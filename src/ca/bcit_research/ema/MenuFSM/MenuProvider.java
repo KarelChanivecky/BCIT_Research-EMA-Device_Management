@@ -27,8 +27,7 @@ public interface MenuProvider {
     /**
      * Presents this MenuProvider as an Option.
      *
-     * @param position The position that this option will take
      * @return An Option to navigate into this MenuProvider
      */
-    Option toOption(int position);
+    Option toOption();
 }
