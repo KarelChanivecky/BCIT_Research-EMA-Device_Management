@@ -1,6 +1,7 @@
 package ca.bcit_research.ema.MenuFSM;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -14,19 +15,9 @@ public interface MenuSerializer {
     /**
      * Get the options contained in all of the given MenuProviders.
      *
+     * @param menuProviders A list of menu providers
+     * @param otherMenu Additional menus to process
      * @return A list of options with implementation-defined order
      */
-    ArrayList<Option> getOptions();
-
-    /**
-     * Choose an option.
-     *
-     * Choosing an option
-     *
-     * @param option The option to choose
-     * @throws Exception May throw any exception
-     * @return The next MenuProvider that should be displayed
-     */
-    MenuProvider choose(Option option) throws Exception;
-
+    ArrayList<Option> getOptions(List<MenuProvider> menuProviders, MenuProvider...otherMenus);
 }
