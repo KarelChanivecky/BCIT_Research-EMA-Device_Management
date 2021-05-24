@@ -1,19 +1,17 @@
 package ca.bcit_research.ema.MenuFSM;
 
 /**
- *  An Option represents a possible choice in a menu.
+ * An Option represents a possible choice in a menu.
  *
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public class Option {
-    private final String name;
-    private final OptionAction action;
+public record Option(String name, OptionAction action) {
 
     /**
-     *  Build instance of option
+     * Build instance of option
      *
-     * @param name The name of the option
+     * @param name   The name of the option
      * @param action The action to be done by the option when selected
      */
     public Option(String name, OptionAction action) {
@@ -30,10 +28,9 @@ public class Option {
     }
 
 
-
     /**
      * Selects the choice and runs the action it represents.
-     *
+     * <p>
      * May cause side effects
      *
      * @return The next menu that should be provided
@@ -42,9 +39,10 @@ public class Option {
         return action.run();
     }
 
-    public String getName() {
+
+    @Override
+    public String toString() {
         return name;
     }
-
 }
 
