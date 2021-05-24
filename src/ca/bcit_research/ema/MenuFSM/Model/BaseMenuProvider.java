@@ -1,6 +1,7 @@
 package ca.bcit_research.ema.MenuFSM.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Karel Chanivecky Garcia
@@ -19,6 +20,11 @@ public abstract class BaseMenuProvider implements MenuProvider {
 
         this.name = name;
 
+    }
+
+    BaseMenuProvider(String name, ArrayList<Option> options) {
+        this(name);
+        this.options = options;
     }
 
     /**
