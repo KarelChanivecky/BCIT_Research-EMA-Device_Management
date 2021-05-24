@@ -1,4 +1,4 @@
-package ca.bcit_research.ema.MenuFSM;
+package ca.bcit_research.ema.MenuFSM.Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;

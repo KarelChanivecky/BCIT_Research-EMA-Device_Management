@@ -1,4 +1,4 @@
-package ca.bcit_research.ema.MenuFSM;
+package ca.bcit_research.ema.MenuFSM.Model;
 
 /**
  * An Option represents a possible choice in a menu.

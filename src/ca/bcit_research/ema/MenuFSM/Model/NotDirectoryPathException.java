@@ -1,4 +1,4 @@
-package ca.bcit_research.ema.MenuFSM;
+package ca.bcit_research.ema.MenuFSM.Model;
 
 /**
  * Thrown when a path does not point to a directory.

@@ -1,4 +1,4 @@
-package ca.bcit_research.ema.MenuFSM;
+package ca.bcit_research.ema.MenuFSM.Model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
