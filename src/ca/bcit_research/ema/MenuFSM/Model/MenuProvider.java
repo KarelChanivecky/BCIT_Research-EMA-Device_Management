@@ -17,14 +17,6 @@ public interface MenuProvider {
     ArrayList<Option> getOptions();
 
     /**
-     * Select and run an option.
-     *
-     * @param option the chosen option
-     * @return The next MenuProvider to present
-     */
-    MenuProvider select(Option option);
-
-    /**
      * Presents this MenuProvider as an Option.
      *
      * @return An Option to navigate into this MenuProvider

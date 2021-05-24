@@ -26,11 +26,6 @@ public class BaseMenuProvider implements MenuProvider {
     }
 
     @Override
-    public MenuProvider select(Option option) {
-        return null;
-    }
-
-    @Override
     public Option toOption() {
         return new Option(name, ()-> this);
     }
