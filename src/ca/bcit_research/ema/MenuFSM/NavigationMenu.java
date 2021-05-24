@@ -15,15 +15,21 @@ public class NavigationMenu extends BaseMenu {
 
     NavigationMenu(String name, MenuProvider parentMenu) throws IllegalArgumentException {
         super(name);
-
-        options.add(parentMenu.toOption());
     }
 
     NavigationMenu(String name, MenuProvider parentMenu, MenuProvider... children) throws IllegalArgumentException {
 
         this(name, parentMenu);
 
-        options = new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children)), parentMenu);
+        options.add(parentMenu.toOption());
+        options.addAll(new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children))));
+    }
+
+    NavigationMenu(String name, MenuProvider... children) throws IllegalArgumentException {
+
+        super(name);
+
+        options.addAll(new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children))));
     }
 
 }
