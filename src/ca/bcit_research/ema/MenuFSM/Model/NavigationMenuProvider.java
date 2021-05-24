@@ -10,14 +10,14 @@ import java.util.Arrays;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public class NavigationMenu extends BaseMenu {
+public class NavigationMenuProvider extends BaseMenuProvider {
 
 
-    NavigationMenu(String name, MenuProvider parentMenu) throws IllegalArgumentException {
+    NavigationMenuProvider(String name, MenuProvider parentMenu) throws IllegalArgumentException {
         super(name);
     }
 
-    NavigationMenu(String name, MenuProvider parentMenu, MenuProvider... children) throws IllegalArgumentException {
+    NavigationMenuProvider(String name, MenuProvider parentMenu, MenuProvider... children) throws IllegalArgumentException {
 
         this(name, parentMenu);
 
@@ -25,7 +25,7 @@ public class NavigationMenu extends BaseMenu {
         options.addAll(new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children))));
     }
 
-    NavigationMenu(String name, MenuProvider... children) throws IllegalArgumentException {
+    NavigationMenuProvider(String name, MenuProvider... children) throws IllegalArgumentException {
 
         super(name);
 

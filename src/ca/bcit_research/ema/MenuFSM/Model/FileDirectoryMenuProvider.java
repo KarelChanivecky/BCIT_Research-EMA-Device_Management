@@ -9,10 +9,10 @@ import java.io.FileNotFoundException;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public abstract class FileDirectoryMenu extends NavigationMenu {
+public abstract class FileDirectoryMenuProvider extends NavigationMenuProvider {
     protected final String workingDirectoryPath;
 
-    public FileDirectoryMenu(String name, String workingDirectoryPath, MenuProvider parentMenu)
+    public FileDirectoryMenuProvider(String name, String workingDirectoryPath, MenuProvider parentMenu)
             throws IllegalArgumentException, FileNotFoundException {
         super(name, parentMenu);
 

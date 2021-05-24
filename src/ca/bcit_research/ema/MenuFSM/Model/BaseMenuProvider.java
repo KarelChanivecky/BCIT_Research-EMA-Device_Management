@@ -6,11 +6,11 @@ import java.util.ArrayList;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public class BaseMenu implements MenuProvider {
+public class BaseMenuProvider implements MenuProvider {
     protected ArrayList<Option> options = new ArrayList<>();
     private final String name;
 
-    BaseMenu(String name) throws IllegalArgumentException {
+    BaseMenuProvider(String name) throws IllegalArgumentException {
 
         if (name.length() == 0) {
             throw new IllegalArgumentException("Name must be at least 1 character long");
