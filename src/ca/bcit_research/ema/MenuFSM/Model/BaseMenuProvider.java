@@ -12,7 +12,7 @@ public abstract class BaseMenuProvider implements MenuProvider {
     private final String name;
     private MenuProvider parentMenuProvider = null;
 
-    BaseMenuProvider(String name) throws IllegalArgumentException {
+    public BaseMenuProvider(String name) throws IllegalArgumentException {
 
         if (name.length() == 0) {
             throw new IllegalArgumentException("Name must be at least 1 character long");
@@ -22,7 +22,7 @@ public abstract class BaseMenuProvider implements MenuProvider {
 
     }
 
-    BaseMenuProvider(String name, ArrayList<Option> options) {
+    public BaseMenuProvider(String name, ArrayList<Option> options) {
         this(name);
         this.options = options;
     }

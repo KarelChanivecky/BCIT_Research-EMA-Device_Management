@@ -13,11 +13,11 @@ import java.util.LinkedList;
 public class NavigationMenuProvider extends BaseMenuProvider {
 
 
-    NavigationMenuProvider(String name) throws IllegalArgumentException {
+    public NavigationMenuProvider(String name) throws IllegalArgumentException {
         super(name);
     }
 
-    NavigationMenuProvider(String name, LinkedList<MenuProvider> children) throws IllegalArgumentException {
+    public NavigationMenuProvider(String name, LinkedList<MenuProvider> children) throws IllegalArgumentException {
 
         this(name);
 
@@ -26,7 +26,7 @@ public class NavigationMenuProvider extends BaseMenuProvider {
         options.addAll(new MenuProviderSerializer().getOptions(children));
     }
 
-    NavigationMenuProvider(String name, MenuProvider... children) throws IllegalArgumentException {
+    public NavigationMenuProvider(String name, MenuProvider... children) throws IllegalArgumentException {
 
         super(name);
 
