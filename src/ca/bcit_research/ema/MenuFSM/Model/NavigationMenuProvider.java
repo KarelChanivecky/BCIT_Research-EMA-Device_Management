@@ -1,8 +1,8 @@
 package ca.bcit_research.ema.MenuFSM.Model;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * A NavigationMenu is a Menu that provides navigation between MenuProviders.
@@ -13,23 +13,24 @@ import java.util.Arrays;
 public class NavigationMenuProvider extends BaseMenuProvider {
 
 
-    NavigationMenuProvider(String name, MenuProvider parentMenu) throws IllegalArgumentException {
+    NavigationMenuProvider(String name) throws IllegalArgumentException {
         super(name);
     }
 
-    NavigationMenuProvider(String name, MenuProvider parentMenu, MenuProvider... children) throws IllegalArgumentException {
+    NavigationMenuProvider(String name, LinkedList<MenuProvider> children) throws IllegalArgumentException {
 
-        this(name, parentMenu);
+        this(name);
 
-        options.add(parentMenu.toOption());
-        options.addAll(new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children))));
+        children.forEach(ch -> ch.setParentMenuProvider(this));
+
+        options.addAll(new MenuProviderSerializer().getOptions(children));
     }
 
     NavigationMenuProvider(String name, MenuProvider... children) throws IllegalArgumentException {
 
         super(name);
 
-        options.addAll(new MenuProviderSerializer().getOptions(new ArrayList<>(Arrays.asList(children))));
+        options.addAll(new MenuProviderSerializer().getOptions(new LinkedList<>(Arrays.asList(children))));
     }
 
 }

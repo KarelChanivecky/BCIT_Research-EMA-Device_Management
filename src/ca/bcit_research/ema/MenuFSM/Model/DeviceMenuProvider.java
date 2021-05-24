@@ -8,11 +8,11 @@ import ca.bcit_research.ema.HardwareModeling.Device;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public abstract class DeviceMenuProvider extends NavigationMenuProvider {
+public abstract class DeviceMenuProvider extends BaseMenuProvider {
     private final Device device;
 
-    public DeviceMenuProvider(String name, Device device, MenuProvider parentMenu) throws IllegalArgumentException {
-        super(name, parentMenu);
+    public DeviceMenuProvider(String name, Device device) throws IllegalArgumentException {
+        super(name);
         this.device = device;
     }
 

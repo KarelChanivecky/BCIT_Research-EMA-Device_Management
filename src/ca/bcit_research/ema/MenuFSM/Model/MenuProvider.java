@@ -22,4 +22,6 @@ public interface MenuProvider {
      * @return An Option to navigate into this MenuProvider
      */
     Option toOption();
+
+    void setParentMenuProvider(MenuProvider parentMenuProvider);
 }
