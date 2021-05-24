@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public class BaseMenuProvider implements MenuProvider {
+public abstract class BaseMenuProvider implements MenuProvider {
     protected ArrayList<Option> options = new ArrayList<>();
     private final String name;
 
