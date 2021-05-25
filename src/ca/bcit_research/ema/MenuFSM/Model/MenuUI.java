@@ -10,10 +10,7 @@ public interface MenuUI {
 
     /**
      * Starts up the UI.
-     *
-     * @param rootMenu The root of the FSM tree.
-     * @param otherMenus Provided in case you want some options to always be available
      */
-    void displayMenu(MenuProvider rootMenu, MenuProvider...otherMenus);
+    void displayMenu();
 
 }

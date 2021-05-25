@@ -8,6 +8,7 @@ import ca.bcit_research.ema.MenuFSM.Model.OptionSerializer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 /**
@@ -18,14 +19,19 @@ public class CLIMenuUI implements MenuUI {
 
     private final int OPTION_START_INDEX = 1;
     private final int BAD_CHOICE = -1;
+    private final MenuProvider rootMenu;
+    private final ArrayList<Option> alwaysAvailableOptions;
+
+    public CLIMenuUI(MenuProvider rootMenu, MenuProvider... otherMenus) {
+        this.rootMenu = rootMenu;
+        this.alwaysAvailableOptions =  new OptionSerializer().getOptions(Arrays.asList(otherMenus));
+    }
 
     @Override
-    public void displayMenu(MenuProvider rootMenu, MenuProvider... otherMenus) {
+    public void displayMenu() {
         printIntro();
 
-        ArrayList<Option> alwaysAvailableOptions = new OptionSerializer().getOptions(Arrays.asList(otherMenus));
-
-        MenuProvider currentMenu = rootMenu;
+        MenuProvider currentMenu = this.rootMenu;
 
         Scanner keyboardScanner = new Scanner(System.in);
 
@@ -75,12 +81,12 @@ public class CLIMenuUI implements MenuUI {
 
 
     private void printOptions(MenuProvider menu, ArrayList<Option> otherOptions) {
-        int optionNumber = OPTION_START_INDEX;
-        menu.getOptions().forEach(option -> printOption(optionNumber, option.name()));
+        AtomicInteger optionNumber = new AtomicInteger(OPTION_START_INDEX);
+        menu.getOptions().forEach(option -> printOption(optionNumber.getAndIncrement(), option.name()));
 
         if (0 < otherOptions.size()) {
             System.out.println("---------");
-            otherOptions.forEach(option -> printOption(optionNumber, option.name()));
+            otherOptions.forEach(option -> printOption(optionNumber.getAndIncrement(), option.name()));
         }
 
 
