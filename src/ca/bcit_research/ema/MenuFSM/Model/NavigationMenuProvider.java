@@ -27,10 +27,12 @@ public class NavigationMenuProvider extends BaseMenuProvider {
     }
 
     public NavigationMenuProvider(String name, MenuProvider... children) throws IllegalArgumentException {
-
         super(name);
 
-        options.addAll(new MenuProviderSerializer().getOptions(new LinkedList<>(Arrays.asList(children))));
+        if (children != null && 0 < children.length) {
+            Arrays.asList(children).forEach((ch -> ch.setParentMenuProvider(this)));
+            options.addAll(new MenuProviderSerializer().getOptions(new LinkedList<>(Arrays.asList(children))));
+        }
     }
 
 }
