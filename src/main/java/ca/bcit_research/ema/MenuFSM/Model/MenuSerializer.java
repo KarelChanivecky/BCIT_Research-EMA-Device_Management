@@ -1,6 +1,7 @@
 package ca.bcit_research.ema.MenuFSM.Model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -19,5 +20,5 @@ public interface MenuSerializer {
      * @param otherMenus Additional menus to process
      * @return A list of options with implementation-defined order
      */
-    ArrayList<Option> getOptions(List<MenuProvider> menuProviders, MenuProvider...otherMenus);
+    ArrayList<Option> getOptions(Collection<MenuProvider> menuProviders, MenuProvider...otherMenus);
 }
