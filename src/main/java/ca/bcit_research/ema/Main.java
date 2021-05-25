@@ -6,10 +6,11 @@ import ca.bcit_research.ema.MenuFSM.Model.MenuProvider;
 import ca.bcit_research.ema.MenuFSM.Model.MenuUI;
 import ca.bcit_research.ema.MenuFSM.Model.NavigationMenuProvider;
 
+import java.util.Properties;
+
 public class Main {
 
     public static void main(String[] args) {
-
         MenuProvider m33 = new MockStringMenu("mock 3, 3", "opt1", "opt2", "opt3");
         MenuProvider m32 = new MockStringMenu("mock 3, 2", "opt3", "opt4", "opt5");
         MenuProvider m31 = new MockStringMenu("mock 3, 1", "opt7", "opt8", "opt9");

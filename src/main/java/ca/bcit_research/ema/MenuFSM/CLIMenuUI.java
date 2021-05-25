@@ -55,21 +55,33 @@ public class CLIMenuUI implements MenuUI {
                 continue;
             }
 
-            choice--;
-
-            Option chosenOption;
-            if (choice < currentOptionsCount ) {
-                chosenOption = currentOptions.get(choice);
-            } else {
-                choice -= currentOptionsCount;
-                chosenOption = alwaysAvailableOptions.get(choice);
-            }
-
-            currentMenu = chosenOption.select();
+            currentMenu = transition(currentMenu, currentOptions, currentOptionsCount, choice);
 
         }
 
 
+    }
+
+    private MenuProvider transition(MenuProvider currentMenu,
+                                    ArrayList<Option> currentOptions,
+                                    int currentOptionsCount,
+                                    int choice) {
+        choice--;
+
+        Option chosenOption;
+        if (choice < currentOptionsCount) {
+            chosenOption = currentOptions.get(choice);
+        } else {
+            choice -= currentOptionsCount;
+            chosenOption = alwaysAvailableOptions.get(choice);
+        }
+
+        MenuProvider nextMenu = chosenOption.select();
+        if (nextMenu != this.rootMenu) {
+            nextMenu.setParentMenuProvider(currentMenu);
+        }
+        currentMenu = nextMenu;
+        return currentMenu;
     }
 
     private int getChoiceInput(Scanner sc) {
