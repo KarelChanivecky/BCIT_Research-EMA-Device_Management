@@ -23,5 +23,7 @@ public interface MenuProvider {
      */
     Option toOption();
 
+    String getName();
+
     void setParentMenuProvider(MenuProvider parentMenuProvider);
 }

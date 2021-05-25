@@ -1,13 +1,13 @@
 package ca.bcit_research.ema.MenuFSM.Model;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public abstract class BaseMenuProvider implements MenuProvider {
+public class BaseMenuProvider implements MenuProvider {
     protected ArrayList<Option> options = new ArrayList<>();
     private final String name;
     private MenuProvider parentMenuProvider = null;
@@ -19,12 +19,17 @@ public abstract class BaseMenuProvider implements MenuProvider {
         }
 
         this.name = name;
-
+        options = new ArrayList<>();
     }
 
     public BaseMenuProvider(String name, ArrayList<Option> options) {
         this(name);
         this.options = options;
+    }
+
+    public BaseMenuProvider(String name, Option... options) {
+        this(name);
+        this.options.addAll(Arrays.asList(options));
     }
 
     /**
@@ -64,7 +69,7 @@ public abstract class BaseMenuProvider implements MenuProvider {
     public void setParentMenuProvider(MenuProvider parentMenuProvider) {
 
         if (this.parentMenuProvider != null) {
-            options.removeIf(option -> option.action().run() == this.parentMenuProvider);
+            options.remove(0);
         }
 
         this.parentMenuProvider = parentMenuProvider;
@@ -79,4 +84,8 @@ public abstract class BaseMenuProvider implements MenuProvider {
         options.add(0, backOption);
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
 }
