@@ -31,7 +31,8 @@ public class NavigationMenuProvider extends BaseMenuProvider {
 
         if (children != null && 0 < children.length) {
             Arrays.asList(children).forEach((ch -> ch.setParentMenuProvider(this)));
-            options.addAll(new MenuProviderSerializer().getOptions(new LinkedList<>(Arrays.asList(children))));
+            options.addAll(new MenuProviderSerializer()
+                    .getOptions(Arrays.asList(children)));
         }
     }
 
