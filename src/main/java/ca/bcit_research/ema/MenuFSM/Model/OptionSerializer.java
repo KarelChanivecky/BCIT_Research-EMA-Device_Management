@@ -2,6 +2,7 @@ package ca.bcit_research.ema.MenuFSM.Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class OptionSerializer implements MenuSerializer{
     @Override
-    public ArrayList<Option> getOptions(List<MenuProvider> menuProviders, MenuProvider... otherMenus) {
+    public ArrayList<Option> getOptions(Collection<MenuProvider> menuProviders, MenuProvider... otherMenus) {
         ArrayList<Option> options = new ArrayList<>();
         menuProviders.forEach(menuProvider -> options.addAll(menuProvider.getOptions()));
         Arrays.asList(otherMenus).forEach(menuProvider -> options.addAll(menuProvider.getOptions()));
