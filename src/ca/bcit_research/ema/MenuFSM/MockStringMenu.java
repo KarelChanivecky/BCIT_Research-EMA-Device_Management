@@ -12,7 +12,7 @@ import ca.bcit_research.ema.MenuFSM.Model.Option;
  */
 public class MockStringMenu extends BaseMenuProvider {
 
-    MockStringMenu(String name, String...optionNames) throws IllegalArgumentException {
+    public MockStringMenu(String name, String... optionNames) throws IllegalArgumentException {
         super(name);
         for (String optionName: optionNames) {
             options.add(new Option(optionName, () -> this));
