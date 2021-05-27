@@ -1,14 +1,13 @@
 package ca.bcit_research.ema;
 
 import ca.bcit_research.ema.HardwareModeling.KeyValue;
-import ca.bcit_research.ema.HardwareModeling.OtherProperty;
 import ca.bcit_research.ema.MenuFSM.CLIFsmDriver;
-import ca.bcit_research.ema.MenuFSM.MockStringMenu;
-import ca.bcit_research.ema.MenuFSM.Model.KeyValueMenuProvider;
+import ca.bcit_research.ema.MenuFSM.menus.MockStringMenu;
+import ca.bcit_research.ema.MenuFSM.menus.KeyValueMenuProvider;
 import ca.bcit_research.ema.MenuFSM.Model.MenuProvider;
 import ca.bcit_research.ema.MenuFSM.Model.FSMDriver;
-import ca.bcit_research.ema.MenuFSM.Model.NavigationMenuProvider;
-import ca.bcit_research.ema.MenuFSM.OtherPropertyKeyValueProvider;
+import ca.bcit_research.ema.MenuFSM.menus.NavigationMenuProvider;
+import ca.bcit_research.ema.HardwareModeling.OtherPropertyKeyValueProvider;
 
 import java.util.ArrayList;
 import java.util.Scanner;

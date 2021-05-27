@@ -1,7 +1,7 @@
-package ca.bcit_research.ema.MenuFSM;
+package ca.bcit_research.ema.MenuFSM.menus;
 
 
-import ca.bcit_research.ema.MenuFSM.Model.BaseMenuProvider;
+import ca.bcit_research.ema.MenuFSM.menus.BaseMenuProvider;
 import ca.bcit_research.ema.MenuFSM.Model.Option;
 
 /**

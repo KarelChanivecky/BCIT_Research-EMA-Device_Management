@@ -1,8 +1,5 @@
-package ca.bcit_research.ema.MenuFSM;
+package ca.bcit_research.ema.HardwareModeling;
 
-import ca.bcit_research.ema.HardwareModeling.KeyValue;
-import ca.bcit_research.ema.HardwareModeling.OtherProperty;
-import ca.bcit_research.ema.MenuFSM.Model.KeyValueMenuProvider;
 import ca.bcit_research.ema.MenuFSM.Model.ValueProvider;
 
 import java.util.Scanner;

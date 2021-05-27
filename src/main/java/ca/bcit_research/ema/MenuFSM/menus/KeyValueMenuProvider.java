@@ -1,6 +1,10 @@
-package ca.bcit_research.ema.MenuFSM.Model;
+package ca.bcit_research.ema.MenuFSM.menus;
 
 import ca.bcit_research.ema.HardwareModeling.KeyValue;
+import ca.bcit_research.ema.MenuFSM.Model.MenuProvider;
+import ca.bcit_research.ema.MenuFSM.Model.MenuProviderSerializer;
+import ca.bcit_research.ema.MenuFSM.Model.Option;
+import ca.bcit_research.ema.MenuFSM.Model.ValueProvider;
 
 import java.util.LinkedList;
 import java.util.List;

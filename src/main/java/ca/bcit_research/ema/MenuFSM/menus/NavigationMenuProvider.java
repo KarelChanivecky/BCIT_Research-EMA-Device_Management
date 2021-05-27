@@ -1,5 +1,8 @@
-package ca.bcit_research.ema.MenuFSM.Model;
+package ca.bcit_research.ema.MenuFSM.menus;
 
+
+import ca.bcit_research.ema.MenuFSM.Model.MenuProvider;
+import ca.bcit_research.ema.MenuFSM.Model.MenuProviderSerializer;
 
 import java.util.Arrays;
 import java.util.LinkedList;
