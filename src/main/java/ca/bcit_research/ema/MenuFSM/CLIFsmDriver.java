@@ -32,15 +32,14 @@ public class CLIFsmDriver implements FSMDriver {
 
 
 
-            currentMenu = transition(currentMenu, currentMenu.getOptions(), choice);
+            currentMenu = transition(currentMenu.getOptions(), choice);
 
         }
 
 
     }
 
-    private MenuProvider transition(MenuProvider currentMenu,
-                                    ArrayList<Option> currentOptions,
+    private MenuProvider transition(ArrayList<Option> currentOptions, //TODO
                                     int choice) {
         choice--;
 
@@ -52,8 +51,7 @@ public class CLIFsmDriver implements FSMDriver {
             chosenOption = alwaysAvailableOptions.get(choice);
         }
 
-        currentMenu = chosenOption.select();
-        return currentMenu;
+        return chosenOption.select();
     }
 
 
