@@ -151,7 +151,7 @@ public class DeviceBoard implements Device {
         }
 
         private CommModule getCommModule() {
-            return new CommModule("none"); // TODO getBoardInputs
+            return new CommModule(CommMethod.WIFI); // TODO getBoardInputs
         }
 
     }
