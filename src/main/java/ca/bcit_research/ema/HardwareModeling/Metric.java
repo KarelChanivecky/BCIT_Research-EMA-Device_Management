@@ -7,20 +7,26 @@ package ca.bcit_research.ema.HardwareModeling;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public class Metric implements KeyValue<String, Integer> {
+public class Metric implements KeyValue<String, String> {
     String name;
-    int bytesPerReading;
+    String readingFormat;
+    boolean armed = false;
 
-    public Metric(String name, int bytesPerReading) {
+    public Metric(String name, String readingFormat) {
         if (name.length() == 0) {
             throw new IllegalArgumentException("Metric name must be at least 1 character long");
         }
 
-        if (bytesPerReading < 0) {
-            throw new IllegalArgumentException("bytesPerReading may not be negative");
+        if (readingFormat == null) {
+            throw new IllegalArgumentException("must provide reading format");
         }
         this.name = name;
-        this.bytesPerReading = bytesPerReading;
+        this.readingFormat = readingFormat;
+    }
+
+    public Metric(String name, String readingFormat, boolean armed) {
+        this(name, readingFormat);
+        this.armed = armed;
     }
 
     @Override
@@ -29,17 +35,25 @@ public class Metric implements KeyValue<String, Integer> {
     }
 
     @Override
-    public Integer getValue() {
-        return bytesPerReading;
+    public String getValue() {
+        return readingFormat;
     }
 
     @Override
-    public boolean setValue(Integer newBytesPerReading) {
-        if (newBytesPerReading < 0) {
-            throw new IllegalArgumentException("newBytesPerReading may not be negative");
+    public boolean setValue(String readingFormat) {
+        if (readingFormat == null) {
+            throw new IllegalArgumentException("must provide reading format");
         }
-
-        bytesPerReading = newBytesPerReading;
+        this.readingFormat = readingFormat;
         return true;
+    }
+
+    /**
+     * Toggle the metric between armed and not armed.
+     * @return The value after toggling
+     */
+    public boolean toggle() {
+        armed = !armed;
+        return armed;
     }
 }
