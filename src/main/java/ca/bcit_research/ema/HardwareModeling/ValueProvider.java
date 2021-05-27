@@ -1,4 +1,4 @@
-package ca.bcit_research.ema.MenuFSM.Model;
+package ca.bcit_research.ema.HardwareModeling;
 
 /**
  * @author Karel Chanivecky Garcia

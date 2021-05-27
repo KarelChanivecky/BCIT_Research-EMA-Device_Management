@@ -1,7 +1,5 @@
 package ca.bcit_research.ema.HardwareModeling;
 
-import ca.bcit_research.ema.MenuFSM.Model.ValueProvider;
-
 import java.util.Scanner;
 
 /**
