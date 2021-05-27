@@ -33,10 +33,12 @@ public class DeviceBoard implements Device {
      * @param commModule a comm module to add to this board
      */
     public DeviceBoard(String pathToConfig, CommModule commModule) {
-        // TODO create board inputs by specs
-        boardName = null;
-        manufacturer = null;
-        boardInputs = null;
+        ConfigParser config = new ConfigParser(pathToConfig);
+
+        this.commModule = commModule;
+        boardName = config.getBoardName();
+        manufacturer = config.getManufacturer();
+        boardInputs = config.getBoardInputs();
     }
 
     /**
@@ -44,10 +46,9 @@ public class DeviceBoard implements Device {
      * @param pathToConfig The path where the config file can be found
      */
     public DeviceBoard(String pathToConfig) {
-        // TODO create board inputs by specs
-        boardName = null;
-        manufacturer = null;
-        boardInputs = null;
+        this(pathToConfig, null);
+        ConfigParser config = new ConfigParser(pathToConfig);
+        commModule = config.getCommModule();
     }
 
     @Override
@@ -117,5 +118,41 @@ public class DeviceBoard implements Device {
     @Override
     public boolean swapProperties(OtherProperty newProperty, OtherProperty oldProperty) {
         return commModule.swapProperties(newProperty, oldProperty);
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public String getBoardName() {
+        return boardName;
+    }
+
+    /**
+     * This inner class is concerned with the parsing of configuration files
+     */
+    private class ConfigParser {
+        private final String pathToConfig;
+
+        public ConfigParser(String pathToConfig) {
+            this.pathToConfig = pathToConfig;
+        }
+
+        protected String getManufacturer() {
+            return ""; //TODO getManufacturer
+        }
+
+        private String getBoardName() {
+            return ""; //TODO getBoardName
+        }
+
+        private ArrayList<BoardInput> getBoardInputs() {
+            return new ArrayList<>(); // TODO getBoardInputs
+        }
+
+        private CommModule getCommModule() {
+            return new CommModule("none"); // TODO getBoardInputs
+        }
+
     }
 }
