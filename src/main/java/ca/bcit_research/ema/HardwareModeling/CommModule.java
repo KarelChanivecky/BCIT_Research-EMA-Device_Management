@@ -8,8 +8,8 @@ import java.util.List;
  * @version May, 2021
  */
 public class CommModule implements WithOtherProperties {
-    CommMethod commMethod;
-    ArrayList<OtherProperty> properties = new ArrayList<>();
+    private final CommMethod commMethod;
+    private final ArrayList<OtherProperty> properties = new ArrayList<>();
 
     public CommModule(CommMethod commMethod) {
         this.commMethod = commMethod;
@@ -42,5 +42,9 @@ public class CommModule implements WithOtherProperties {
         }
 
         return true;
+    }
+
+    public CommMethod getCommMethod() {
+        return commMethod;
     }
 }

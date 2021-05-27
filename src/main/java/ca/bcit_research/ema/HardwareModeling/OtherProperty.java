@@ -7,8 +7,8 @@ package ca.bcit_research.ema.HardwareModeling;
  * @version May, 2021
  */
 public class OtherProperty implements KeyValue<String, String> {
-        String name;
-        String value;
+        private final String name;
+        private String value;
 
     public OtherProperty(String name, String value) {
         if (name.length() == 0) {
