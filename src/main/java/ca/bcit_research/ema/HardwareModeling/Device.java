@@ -8,7 +8,7 @@ import java.util.List;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public interface Device {
+public interface Device extends WithMetrics, WithOtherProperties {
 
     /**
      * Gets a list of inputs available in the device
@@ -42,6 +42,7 @@ public interface Device {
      * Exchange a sensor for another.
      * @param sensor the interface type of the new sensor must match the one of the old sensor
      * @param pathToSensor the path to the input
+     * @return
      */
-    void setSensor(Sensor sensor, String pathToSensor);
+    boolean setSensor(Sensor sensor, String pathToSensor);
 }
