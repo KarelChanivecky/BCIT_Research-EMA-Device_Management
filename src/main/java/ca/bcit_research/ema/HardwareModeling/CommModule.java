@@ -8,10 +8,10 @@ import java.util.List;
  * @version May, 2021
  */
 public class CommModule implements WithOtherProperties {
-    String commMethod;
-    ArrayList<OtherProperty> properties = new ArrayList<OtherProperty>();
+    CommMethod commMethod;
+    ArrayList<OtherProperty> properties = new ArrayList<>();
 
-    public CommModule(String commMethod) {
+    public CommModule(CommMethod commMethod) {
         this.commMethod = commMethod;
     }
 
