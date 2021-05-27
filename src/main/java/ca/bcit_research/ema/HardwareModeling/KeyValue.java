@@ -8,5 +8,4 @@ public interface KeyValue<T,E> {
     T getKey();
     E getValue();
     boolean setValue(E newValue);
-    String toString();
 }
