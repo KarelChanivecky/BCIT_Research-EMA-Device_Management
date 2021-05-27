@@ -8,7 +8,7 @@ package ca.bcit_research.ema.HardwareModeling;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public enum CommMethods {
+public enum CommMethod {
     WIFI {
         public String toString() {
             return "wifi"; // TODO check for correctness
