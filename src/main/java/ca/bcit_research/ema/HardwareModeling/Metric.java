@@ -7,10 +7,10 @@ package ca.bcit_research.ema.HardwareModeling;
  * @author Karel Chanivecky Garcia
  * @version May, 2021
  */
-public class Metric implements KeyValue<String, String> {
-    String name;
-    String readingFormat;
-    boolean armed = false;
+public class Metric implements KeyValue<String, Boolean> {
+    private final String name;
+    private final String readingFormat;
+    private boolean armed = false;
 
     public Metric(String name, String readingFormat) {
         if (name.length() == 0) {
@@ -35,17 +35,14 @@ public class Metric implements KeyValue<String, String> {
     }
 
     @Override
-    public String getValue() {
-        return readingFormat;
+    public Boolean getValue() {
+        return armed;
     }
 
     @Override
-    public boolean setValue(String readingFormat) {
-        if (readingFormat == null) {
-            throw new IllegalArgumentException("must provide reading format");
-        }
-        this.readingFormat = readingFormat;
-        return true;
+    public boolean setValue(Boolean armed) {
+        this.armed = armed;
+        return armed;
     }
 
     /**
@@ -55,5 +52,13 @@ public class Metric implements KeyValue<String, String> {
     public boolean toggle() {
         armed = !armed;
         return armed;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getReadingFormat() {
+        return readingFormat;
     }
 }
