@@ -15,15 +15,19 @@ public class VirtualDevice implements Device {
 
     private DeviceBoard board;
     private String name;
-    ArrayList<OtherProperty> properties = new ArrayList<OtherProperty>();
+    ArrayList<OtherProperty> properties = new ArrayList<>();
 
-    public VirtualDevice(String name) {
-        if (name.length() == 0) {
-            throw new IllegalArgumentException("The name must be at least 1 character long");
-        }
-        this.name = name;
+
+    /**
+     * Provided to load device from file.
+     * @param pathToConfig The path where the config file is saved.
+     */
+    public VirtualDevice(String pathToConfig) {
         board = null;
+        name = null;
+        System.out.println(pathToConfig);
     }
+
 
     /**
      * Set the given board as the new board.
@@ -75,7 +79,8 @@ public class VirtualDevice implements Device {
     }
 
     public String toYaml() {
-        return null;
+        return null; // TODO toYaml
+        // this would ideally output the configuration file that is passed to the devices
     }
 
     @Override
