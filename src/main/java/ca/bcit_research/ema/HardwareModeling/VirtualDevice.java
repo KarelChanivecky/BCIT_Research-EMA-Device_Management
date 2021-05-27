@@ -83,11 +83,6 @@ public class VirtualDevice implements Device {
         return board.getMetrics();
     }
 
-    @Override
-    public boolean toggleMetrics(Metric metric) {
-        return board.toggleMetrics(metric);
-    }
-
     /**
      * Add a new property to virtual device.
      *

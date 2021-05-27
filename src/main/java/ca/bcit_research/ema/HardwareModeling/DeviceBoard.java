@@ -94,7 +94,7 @@ public class DeviceBoard implements Device {
     public ArrayList<Metric> getMetrics() {
         ArrayList<Metric> metrics = new ArrayList<>();
         ArrayList<Sensor> sensors = getSensors();
-//        sensors.forEach(s -> metric.addAll(s.)); // TODO getMetrics
+        sensors.forEach(s -> metrics.addAll(s.getMetrics()));
         return metrics;
     }
 
